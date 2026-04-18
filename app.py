@@ -1,44 +1,45 @@
 import streamlit as st
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model
+from PIL import Image
 
-# Load model
-model = load_model("mobilenet_mask_model.keras")
+st.title("😷 Face Mask Detection App")
 
-st.title("Face Mask Detection App 😷")
+st.write("Choose input method:")
 
-# Face detector
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+option = st.radio("Select Option:", ["Upload Image", "Use Camera"])
 
-file = st.file_uploader("Upload Image", type=["jpg","png","jpeg"])
+# Dummy prediction function (replace with your model)
+def predict(image):
+    # yahan tum apna trained model use kar sakti ho
+    return "Mask 😷"  # ya "No Mask ❌"
 
-if file is not None:
-    file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
-    img = cv2.imdecode(file_bytes, 1)
+# =======================
+# 📁 Upload Image
+# =======================
+if option == "Upload Image":
+    file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
 
-    st.image(img, channels="BGR")
+    if file is not None:
+        image = Image.open(file)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+        img = np.array(image)
 
-    if len(faces) == 0:
-        st.warning("No face detected 😐")
-    else:
-        for (x, y, w, h) in faces:
-            face = img[y:y+h, x:x+w]
+        result = predict(img)
+        st.success(f"Prediction: {result}")
 
-            face = cv2.resize(face, (128,128))
-            face = face / 255.0
-            face = np.expand_dims(face, axis=0)
+# =======================
+# 📷 Camera Input
+# =======================
+elif option == "Use Camera":
+    img_file_buffer = st.camera_input("Take a picture")
 
-            pred = model.predict(face)
+    if img_file_buffer is not None:
+        image = Image.open(img_file_buffer)
+        st.image(image, caption="Captured Image", use_column_width=True)
 
-            # DEBUG
-            st.write("Prediction:", pred)
+        img = np.array(image)
 
-            # Softmax model (tumhara)
-            if np.argmax(pred) == 0:
-                st.success("Mask Detected 😷")
-            else:
-                st.error("No Mask 😐")
+        result = predict(img)
+        st.success(f"Prediction: {result}")
