@@ -1,21 +1,22 @@
-# app.py
-%%writefile app.py
 import streamlit as st
 import cv2
 import numpy as np
 import tensorflow as tf
 from PIL import Image
 
-# load model
-model = tf.keras.models.load_model("mobilenet_mask_model.keras")
-st.title("😷 Face Mask Detection App")
+# Load model (cache for fast loading)
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model("mobilenet_mask_model.keras")
 
-st.write("Choose input method:")
+model = load_model()
+
+st.title("😷 Face Mask Detection App")
 
 option = st.radio("Select Option:", ["Upload Image", "Use Camera"])
 
-# Dummy prediction function (replace with your model)
 def predict(image):
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)  # fix color issue
     img = cv2.resize(image, (128, 128))
     img = img / 255.0
     img = np.expand_dims(img, axis=0)
@@ -23,36 +24,26 @@ def predict(image):
     pred = model.predict(img)
     class_id = np.argmax(pred)
 
-    if class_id == 0:
-        return "Mask 😷"
-    else:
-        return "No Mask ❌"
-# =======================
-# 📁 Upload Image
-# =======================
+    return "Mask 😷" if class_id == 0 else "No Mask ❌"
+
+# Upload
 if option == "Upload Image":
-    file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload image", type=["jpg", "png", "jpeg"])
 
-    if file is not None:
+    if file:
         image = Image.open(file)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, use_column_width=True)
 
-        img = np.array(image)
+        result = predict(np.array(image))
+        st.success(result)
 
-        result = predict(img)
-        st.success(f"Prediction: {result}")
-
-# =======================
-# 📷 Camera Input
-# =======================
+# Camera
 elif option == "Use Camera":
-    img_file_buffer = st.camera_input("Take a picture")
+    cam = st.camera_input("Take picture")
 
-    if img_file_buffer is not None:
-        image = Image.open(img_file_buffer)
-        st.image(image, caption="Captured Image", use_column_width=True)
+    if cam:
+        image = Image.open(cam)
+        st.image(image, use_column_width=True)
 
-        img = np.array(image)
-
-        result = predict(img)
-        st.success(f"Prediction: {result}")
+        result = predict(np.array(image))
+        st.success(result)
