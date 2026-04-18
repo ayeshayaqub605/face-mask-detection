@@ -37,3 +37,49 @@ The system detects whether a person is wearing a mask or not using image upload 
 ### 1️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
+
+---
+
+### 2️⃣ Run Streamlit app
+streamlit run app.py
+
+---
+
+🌐 Deployment
+
+This project can be deployed using:
+- Streamlit Cloud
+- Ngrok (for temporary public link)
+- Render / HuggingFace Spaces
+
+---
+
+📊 Project Status
+✔ Completed
+
+---
+
+👩‍💻 Author
+Aysha Yaqoob
+
+---
+
+📷 Demo
+Upload image or use camera to test the model in real-time.
+
+---
+
+⭐ Future Improvements
+- Add face detection bounding box
+- Improve accuracy with larger dataset
+- Add confidence score (e.g. 95% Mask)
+- Real-time video stream detection
+
+---
+
+📜 License
+This project is for educational purposes only.
+
+---
+
+
