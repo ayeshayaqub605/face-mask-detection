@@ -41,6 +41,7 @@ pip install -r requirements.txt
 ---
 
 ### 2️⃣ Run Streamlit app
+```bash
 streamlit run app.py
 
 ---
@@ -55,16 +56,19 @@ This project can be deployed using:
 ---
 
 📊 Project Status
+
 ✔ Completed
 
 ---
 
 👩‍💻 Author
+
 Aysha Yaqoob
 
 ---
 
 📷 Demo
+
 Upload image or use camera to test the model in real-time.
 
 ---
