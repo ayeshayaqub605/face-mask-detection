@@ -86,4 +86,14 @@ This project is for educational purposes only.
 
 ---
 
+## 🚀 Project Demo
 
+😷 Face Mask Detection System (Live Web App)
+
+🔗 **Try it here:**  
+👉 https://huggingface.co/spaces/iqrakhan12/face-mask-detection-app
+
+✔ Upload image or use camera  
+✔ Get real-time prediction  
+
+---
