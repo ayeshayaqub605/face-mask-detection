@@ -43,3 +43,6 @@ elif option == "Use Camera":
 
         result = predict(img)
         st.success(f"Prediction: {result}")
+
+
+
