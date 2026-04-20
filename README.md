@@ -1,67 +1,57 @@
-# 😷 Face Mask Detection System
+😷 Face Mask Detection System
 
-A CNN-based Face Mask Detection system built using Deep Learning and Computer Vision.  
-The system detects whether a person is wearing a mask or not using image upload or real-time camera input.
+A deep learning-based Face Mask Detection system built using CNN (MobileNetV2).
+This project detects whether a person is wearing a mask or not from an image using a trained AI model.
 
----
-
-## 📌 Features
-- 📁 Upload image for detection  
-- 📷 Real-time camera input  
-- 😷 Face mask / No mask prediction  
-- ⚡ Fast inference using trained CNN model  
-- 🌐 Web-based interface using Streamlit  
-
----
-
-## 🛠 Tech Stack
-- Python  
-- TensorFlow / Keras  
-- OpenCV  
-- Streamlit  
-- NumPy  
-- PIL (Python Imaging Library)  
-
----
-
-## 🧠 Model Details
-- Architecture: CNN / MobileNet (trained on face mask dataset)  
-- Input size: 128x128 images  
-- Output: Mask / No Mask classification  
-- Loss Function: Binary/Categorical Crossentropy  
-
----
-
-## 🚀 How to Run
-
-### 1️⃣ Install dependencies
-```bash
+📌 Features
+📁 Upload image for mask detection
+📷 Real-time prediction support (optional)
+😷 Classifies: Mask / No Mask
+⚡ Fast inference using trained CNN model
+🌐 Web-based UI using Gradio
+🚀 Deployed on Hugging Face Spaces
+🛠 Tech Stack
+Python
+TensorFlow / Keras
+OpenCV
+NumPy
+PIL (Pillow)
+Gradio
+🧠 Model Details
+Architecture: MobileNetV2 (CNN)
+Input Size: 128x128 images
+Output: Binary Classification (Mask / No Mask)
+Activation: Softmax
+Loss Function: Categorical Crossentropy
+Optimizer: Adam
+🚀 How to Run Locally
+1️⃣ Clone Repository
+git clone https://github.com/your-username/face-mask-detection.git
+cd face-mask-detection
+2️⃣ Install Dependencies
 pip install -r requirements.txt
-
-2️⃣ Run Streamlit app
-streamlit run app.py
+3️⃣ Run Application
+python app.py
 🌐 Live Demo
-
-😷 Face Mask Detection System (Live Web App)
 
 👉 https://huggingface.co/spaces/iqrakhan12/face-mask-detection-app
 
-✔ Upload image or use camera
-✔ Get real-time prediction
+✔ Upload image
+✔ Get instant prediction
 
-📊 Project Status
-
-✔ Completed and Deployed
-
+📊 Project Highlights
+End-to-end AI project (training + deployment)
+Real-world computer vision application
+Fully deployed web app
+🔮 Future Improvements
+Add face detection bounding box
+Improve accuracy with larger dataset
+Add confidence score visualization
+Real-time video stream detection
 👩‍💻 Author
 
 Ayesha Yaqub
 
-⭐ Future Improvements
-Add face detection bounding box
-Improve accuracy with larger dataset
-Add confidence score (e.g. 95%)
-Real-time video stream detection
 📜 License
 
 This project is for educational purposes only.
