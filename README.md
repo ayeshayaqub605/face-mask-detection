@@ -44,34 +44,33 @@ pip install -r requirements.txt
 ```bash
 python app.py
 
----
 
 ## 🌐 Live Demo
 - 😷 Face Mask Detection System (Live Web App) 
 - 👉 https://huggingface.co/spaces/iqrakhan12/face-mask-detection-app 
 - ✔ Upload image and get instant prediction
 
----
+
 
 ## 📊 Project Status
  Completed and Deployed
 
----
+
 
 ## 👩‍💻 Author
 Ayesha Yaqub
 
----
+
 
 ## ⭐ Future Improvements
 - Add face detection bounding box
--   Improve accuracy with larger dataset
--   Add confidence score (e.g. 95%)
+- Improve accuracy with larger dataset
+- Add confidence score (e.g. 95%)
 - Real-time video stream detection
  
----
+
 
 ## 📜 License
-- This project is for educational purposes only.
+ This project is for educational purposes only.
 
----
+
