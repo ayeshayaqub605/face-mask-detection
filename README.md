@@ -53,8 +53,7 @@ python app.py
 
 
 ## 📊 Project Status
- Completed and Deployed
-
+End-to-end Deep Learning project successfully deployed on Hugging Face Spaces
 
 
 ## 👩‍💻 Author
