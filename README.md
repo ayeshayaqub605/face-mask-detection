@@ -51,6 +51,12 @@ python app.py
 - ✔ Upload image and get instant prediction
 
 
+## 🖼️ App Preview
+This is how the application looks in real usage:
+
+![App UI](screenshot.png)
+
+
 
 ## 📊 Project Status
 End-to-end Deep Learning project successfully deployed on Hugging Face Spaces
