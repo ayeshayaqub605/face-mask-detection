@@ -47,7 +47,7 @@ python app.py
 
 ## 🌐 Live Demo
 - 😷 Face Mask Detection System (Live Web App) 
-- 👉 https://huggingface.co/spaces/iqrakhan12/face-mask-detection-app 
+- 👉 https://huggingface.co/spaces/ayeshayaqub605/face-mask-detection
 - ✔ Upload image and get instant prediction
 
 
